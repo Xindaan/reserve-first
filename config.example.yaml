@@ -1,0 +1,28 @@
+# Read-only pilot: no setting in this file enables live cloud writes.
+# latitude/longitude are a placeholder (Frankfurt am Main); set your own site.
+strategy: binary
+reserve_mode: nominal
+soc_low: 45
+soc_high: 55
+soc_target: 50
+adaptive_low: 60
+adaptive_max: 65
+weak_day_wh: 400
+pv_start_w: 60
+pv_stop_w: 40
+stable_s: 900
+dwell_s: 600
+cycle_s: 300
+active_age_s: 180
+standby_age_s: 3900
+write_interval_s: 600
+settle_s: 120
+max_writes_hour: 6
+max_writes_day: 48
+lease_minutes: 10
+discharge_alarm_w: 3
+latitude: 50.11
+longitude: 8.68
+sun_margin_minutes: 30
+timestamp_timezone: Europe/Berlin
+timestamp_verified: false

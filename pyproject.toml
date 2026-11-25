@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling==1.27.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "solarbank-winter-controller"
+version = "0.1.0"
+description = "Konservativer A17C0/MI80 Wintercontroller: Simulation und lesender Pilot"
+requires-python = ">=3.12,<3.15"
+dependencies = ["PyYAML==6.0.3", "astral==3.2"]
+
+[project.optional-dependencies]
+cloud = ["anker-solix-api @ git+https://github.com/thomluther/anker-solix-api.git@646e2b7bc314321527e7ec41070367154e001a3c"]
+
+[dependency-groups]
+dev = ["pytest==8.4.2", "hypothesis==6.142.4", "ruff==0.14.3"]
+
+[project.scripts]
+solarbank = "solarbank_controller.cli:main"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/solarbank_controller"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "B", "I"]
